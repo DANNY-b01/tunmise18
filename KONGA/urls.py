@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from store.views import homepage,detailpage
+from store.views import homepage,detailpage,createproductpage
+
 
 
 
@@ -26,7 +27,9 @@ from store.views import homepage,detailpage
 urlpatterns=[
     path('admin/',admin.site.urls),
     path("", homepage),
-    path("<input_id>/",detailpage, name="detail")
+    path("create/", createproductpage, name="product"),
+    path("<input_id>/",detailpage, name="detail"),
+    
 ]
 
 if settings.DEBUG:
