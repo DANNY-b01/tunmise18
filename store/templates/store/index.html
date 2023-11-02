@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'store/index.css' %}">
     
 </head>
-<!-- <style>
+<style>
     h1{
         color: blue;
         text-align: center;
@@ -23,16 +23,28 @@
     body{
         background-color: blanchedalmond;
     }
+    .all_products{
+        text-align: center;
+    }
 
 
 
-</style> -->
+</style>
 <body>
    <h1>welcome to the home page</h1> 
    <div>
     <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam corrupti molestias nemo perspiciatis ex numquam eum deserunt! Illo quod mollitia atque modi debitis amet porro, odit, blanditiis tenetur, commodi distinctio!
     </p>
+   </div>
+   <div class="all_products">
+    {% for product in all_products %}
+   <h2><a href="{% url 'detail' product.id %}">{{product.name}}</a> </h2>
+   <img src="{{ product.image.url }}" alt="">
+   <br>
+   {{product.price}}
+    
+    {% endfor %}
    </div>
 </body>
 </html>
